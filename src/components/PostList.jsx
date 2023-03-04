@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import {selectAllPosts} from '../container/Posts/postslice'
 import Author from './Author';
 import TimeAgo from './TimeAgo';
+import ReactionButtons from './ReactionButtons';
 
 const PostList = () => {
     const posts = useSelector(selectAllPosts);
@@ -17,6 +18,7 @@ const PostList = () => {
               <Author userId={post.userId} />
               <TimeAgo timestamp={post.date} />
             </p>
+            <ReactionButtons post={post} />
         </article>
     ))
   return (
