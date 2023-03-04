@@ -1,7 +1,15 @@
 import {createSlice, nanoid} from '@reduxjs/toolkit';
+import {sub} from 'date-fns';
+
 const initialState = [
-    {id:'1',title:'Learning redux toolkit',content:'Haml (HTML Abstraction Markup Language) is a markup language that is used to describe the structure of HTML documents. '},
-    {id:'2',title:'Slices..',content:'Haml (HTML Abstraction Markup Language) is a markup language that is used to describe the structure of HTML documents. '}
+    {id:'1',title:'Learning redux toolkit',
+    content:'Haml (HTML Abstraction Markup Language) is a markup language that is used to describe the structure of HTML documents. ',
+    date:sub(new Date(),{minutes:10}).toISOString()
+    },
+    {id:'2',title:'Slices..',
+    content:'Haml (HTML Abstraction Markup Language) is a markup language that is used to describe the structure of HTML documents. ',
+    date:sub(new Date(),{minutes:5}).toISOString()
+    }
 ]
 
 const postSlice = createSlice({
@@ -21,6 +29,7 @@ const postSlice = createSlice({
                         id:nanoid(),
                         title,
                         content,
+                        date:new Date().toISOString(),
                         userId
                     }
                 }
